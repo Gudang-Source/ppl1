@@ -2,7 +2,7 @@
 
 include("connect.php");
 
-/* Fungsi */
+/* Fungsi read all data*/
 function get_ATK(){
 /* Mengakses data seluruh ATK */
 	global $conn;
@@ -87,6 +87,34 @@ function get_booking(){
 	return $booking;
 }
 
+/* Fungsi Create */
+function insert_ATK($aid, $jenis, $stok, $stok_min){
+/* Menambah ATK baru */
+	global $conn;
+	$query = INSERT INTO ATK (aid, jenis, stok, stok_min) VALUES ($aid, $jenis, $stok, $stok_min);
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function insert_user($uid, $nama){
+/* Menambah user */
+	global $conn;
+	$query = INSERT INTO ATK (aid, nama) VALUES ($aid, $nama);
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function insert_supplier($sid, $jenis, $stok, $stok_min){
+/* Menambah supplier */
+	global $conn;
+	$query = INSERT INTO ATK (sid, nama, perusahaan) VALUES ($sid, $nama, $perusahaan);
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
 function insert_pemakaian($jumlah, $tanggal, $p_uid, $p_aid){
 /* Menambah pemakaian */
 	global $conn;
@@ -96,6 +124,139 @@ function insert_pemakaian($jumlah, $tanggal, $p_uid, $p_aid){
 	return $rquery;
 }
 
+function insert_booking($jumlah, $tanggal, $b_uid, $b_aid){
+/* Menambah booking */
+	global $conn;
+	$query = INSERT INTO booking (jumlah, tanggal, p_uid, p_aid) VALUES ($jumlah, $tanggal, (SELECT uid, aid FROM user NATURAL JOIN ATK WHERE (uid = $b_uid) AND (aid = $b_aid)));
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function insert_pengadaan($jumlah, $tgl_pesan, $tgl_datang, $p_sid, $p_aid){
+/* Menambah pengadaan */
+	global $conn;
+	$query = INSERT INTO pengadaan (jumlah, tgl_pesan, tgl_datang, p_sid, p_aid) VALUES ($jumlah, $tgl_pesan, $tgl_datang, (SELECT sid, aid FROM supplier NATURAL JOIN ATK WHERE (sid = $a_sid) AND (aid = $a_aid)));
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+/* Fungsi Update */
+function update_ATK($aid, $jenis, $stok, $stok_min){
+/* Mengubah data ATK */
+	global $conn;
+	$query = UPDATE ATK SET jenis = $jenis, stok = $stok, stok_min = $stok_min WHERE aid = $aid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function update_user($uid, $nama){
+/* Mengubah data user */
+	global $conn;
+	$query = UPDATE user SET nama = $nama WHERE uid = $uid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function update_supplier($sid, $nama, $perusahaan){
+/* Mengubah data supplier */
+	global $conn;
+	$query = UPDATE supplier SET nama = $nama, perusahaan = $perusahaan WHERE sid = $sid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function update_pemakaian($pid, $jumlah, $tanggal, $p_uid, $p_aid){
+/* Mengubah data pemakaian */
+	global $conn;
+	$query = UPDATE pemakaian SET jumlah=$jumlah, tanggal=$tanggal, p_uid=$p_uid, p_aid=$p_aid WHERE pid = $pid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function update_booking($bid, $jumlah, $tanggal, $b_uid, $b_aid){
+/* Mengubah data booking */
+	global $conn;
+	$query = UPDATE booking SET jumlah=$jumlah, tanggal=$tanggal, b_uid=$b_uid, b_aid=$b_aid WHERE bid = $bid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+function update_pengadaan($aid, $jumlah, $tgl_pesan, $tgl_datang, $a_sid, $a_aid){
+/* Mengubah data pengadaan */
+	global $conn;
+	$query = UPDATE pengadaan SET jumlah=$jumlah, tgl_pesan=$tgl_pesan, tgl_datang=$tgl_datang, a_sid=$a_sid, a_aid=$a_aid WHERE aid = $aid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+}
+
+/* Fungsi Delete */
+function delete_ATK($aid){
+/* Menghapus data ATK */
+	global $conn;
+	$query = DELETE FROM ATK WHERE aid = $aid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+
+}
+
+function delete_user($uid){
+/* Menghapus data user */
+	global $conn;
+	$query = DELETE FROM user WHERE uid = $uid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+
+}
+
+function delete_supplier($sid){
+/* Menghapus data supplier */
+	global $conn;
+	$query = DELETE FROM ATK WHERE sid = $sid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+
+}
+
+function delete_pemakaian($pid){
+/* Menghapus data pemakaian */
+	global $conn;
+	$query = DELETE FROM pemakaian WHERE pid = $pid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+
+}
+
+function delete_booking($bid){
+/* Menghapus data booking */
+	global $conn;
+	$query = DELETE FROM booking WHERE bid = $bid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+
+}
+
+function delete_pengadaan($aid){
+/* Menghapus data ATK */
+	global $conn;
+	$query = DELETE FROM pengadaan WHERE aid = $aid;
+	$rquery = mysqli_query($conn, $query);
+	
+	return $rquery;
+
+}
 
 
 ?>
