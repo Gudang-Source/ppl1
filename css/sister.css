@@ -27,6 +27,26 @@
 	width: 30%;
 }
 
+#edit-modal{
+	width: 30%;
+}
+
 .row{
 	margin-bottom: 0px;
+}
+
+#tabel-stok{
+	table-layout: fixed;
+}
+
+.edit-btn{
+	display:none;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.delete-btn{
+	display:none;
+	font-size: 12px;
+	font-weight: bold;
 }
