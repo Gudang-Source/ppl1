@@ -8,9 +8,9 @@
     <body>
       <?php include('navbar.html'); ?>
       <div class="container">
-        <!--Perbarui Data -->
+        <!--Add-Modal -->
         <div class="button-row">
-          <a id="perbarui-data" class="waves-effect waves-light btn modal-trigger green darken-1" href="#add-modal">Tambah Baru</a>
+          <a class="add-btn waves-effect waves-light btn modal-trigger green darken-1" href="#add-modal">Tambah Baru</a>
           <!-- Modal Structure -->
           <div id="add-modal" class="modal modal-fixed-footer">
             <div class="modal-content">
@@ -63,7 +63,7 @@
               </thead>
               <tbody>
                 <tr class="data-row">
-                  <td>ATK01</td>
+                  <td>ATK1</td>
                   <td>Spidol Hitam</td>
                   <td>5</td>
                   <td>3</td>
@@ -71,7 +71,7 @@
                   <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>               
                 </tr>
                 <tr class="data-row">
-                  <td>ATK02</td>
+                  <td>ATK2</td>
                   <td>Ballpoint Merah</td>
                   <td>10</td>
                   <td>5</td>
@@ -159,6 +159,10 @@
               editModal.find("#jumlah-atk").val(record.eq(2).html());
               editModal.find("#stok-min").val(record.eq(3).html());
           });
+          //auto-increment ID for new record
+          var newId = "ATK" + (parseInt($("#tabel-stok > tbody > tr:last-child> td").eq(0).text().substring(3))+1);
+          console.log(newId);
+          $("#add-modal").find("#id-atk").val(newId);
         });
       </script>
     </body>
