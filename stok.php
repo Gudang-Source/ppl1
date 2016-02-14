@@ -12,32 +12,32 @@
         <div class="button-row">
           <a class="add-btn waves-effect waves-light btn modal-trigger green darken-1" href="#add-modal">Tambah Baru</a>
           <!-- Modal Structure -->
-          <div id="add-modal" class="modal modal-fixed-footer">
+          <div id="add-modal" class="modal">
             <div class="modal-content" style="height:100%">
               <h4>Tambah ATK Baru</h4>
               <div class="row">
                 <form id="add-form" class="col s12" action="">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input disabled id="id-atk" type="text" class="validate" required="" aria-required="true">
+                      <input disabled name="" id="id-atk" type="text" class="validate" required="" aria-required="true">
                       <label for="id-atk">ID ATK</label>
                     </div>
                   </div> 
                   <div class="row"> 
                     <div class="input-field col s6">
-                      <input id="jenis-atk" type="text" class="validate" required="" aria-required="true">
+                      <input name="" id="jenis-atk" type="text" class="validate" required="" aria-required="true">
                       <label for="jenis-atk">Jenis ATK</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input id="jumlah" type="text" class="validate" required="" aria-required="true">
+                      <input name="" id="jumlah" type="text" class="validate" required="" aria-required="true">
                       <label for="jumlah">Jumlah</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input id="stok-min" type="text" class="validate" required="" aria-required="true">
+                      <input name="" id="stok-min" type="text" class="validate" required="" aria-required="true">
                       <label for="stok-min">Stok Minimum</label>
                     </div>
                   </div>
@@ -81,7 +81,7 @@
               </tbody>
             </table>
             <!-- Edit-Modal-->
-              <div id="edit-modal" class="modal modal-fixed-footer">
+              <div id="edit-modal" class="modal">
                 <div class="modal-content" style="height:100%">
                   <h4>Ubah Data ATK</h4>
                   <div class="row">
@@ -124,7 +124,7 @@
                   <p>Anda yakin akan menghapus data ini ?</p>
                 </div>
                 <div class="modal-footer">
-                  <div><a href="#!" class=" btn waves-effect waves-light red darken-4" >Hapus</a></div>
+                  <div><a href="#!" class="hapus btn waves-effect waves-light red darken-4" >Hapus</a></div>
                   <div><a href="#!" class=" btn waves-effect waves-light green darken-4" style="margin-right:20px">Batal</a></div>
                 </div>
               </div>
@@ -137,33 +137,9 @@
       
       <!--js-->
       <script type="text/javascript">
-        document.getElementById("stok").className += "active";
         $(document).ready(function(){
-          // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-          $('.modal-trigger').leanModal();
-          //edit-delete button show-hide
-          $(document).on("mouseenter", ".data-row", function () {
-              $(this).find(".edit-btn").show();
-              $(this).find(".delete-btn").show();
-          }).on("mouseleave", ".data-row", function () {
-              $(this).find(".edit-btn").hide();
-              $(this).find(".delete-btn").hide();
-          });
-          //set edit mode val
-          $(document).on("click", ".edit-btn", function(){
-              var editModal = $("#edit-modal");
-              editModal.find(".edit-label").addClass("active");
-              var record = $(this).parent().siblings();
-              editModal.find("#id-atk").val(record.eq(0).html());
-              editModal.find("#jenis-atk").val(record.eq(1).html());
-              editModal.find("#jumlah-atk").val(record.eq(2).html());
-              editModal.find("#stok-min").val(record.eq(3).html());
-          });
-          //auto-increment ID for new record
-          var newId = "ATK" + (parseInt($("#tabel-stok > tbody > tr:last-child> td").eq(0).text().substring(3))+1);
-          $("#add-modal").find("#id-atk").val(newId);
-          
-        });
+          initPage("tabel-stok",["id-atk","jenis-atk","jumlah-atk","stok-min"],"id-atk",3,0,"ATK","index.php","idAtk",0);
+        });  
       </script>
     </body>
   </html>
