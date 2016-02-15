@@ -1,7 +1,9 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <?php include('header.html'); ?>
+      <?php include('header.html'); 
+			require_once("database.php");
+			?>
       <title>SISTER | Pemakaian</title>
       <style>
         .datepicker{
@@ -21,34 +23,34 @@
             <div class="modal-content" style="height:100%">
               <h4>Tambah Pemakaian</h4>
               <div class="row">
-                <form id="add-form" class="col s12" action="">
+                <form id="add-form" class="col s12" action="/ppl1/function/insertPemakaian.php" method="get" name = "insert">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input disabled name="" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
+                      <input name="pid" value="NULL" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
                       <label for="id-pemakaian">ID Pemakaian</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
+                      <input name="p_uid" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
                       <label for="id-pengguna">ID Pengguna</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="" id="id-atk" type="text" class="validate" required="" aria-required="true">
+                      <input name="p_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
                       <label for="id-atk">ID ATK</label>
                     </div>
                   </div> 
                   <div class="row"> 
                     <div class="input-field col s6">
-                      <input name="" id="tanggal-pemakaian" type="date" class="validate" required="" aria-required="true">
+                      <input name="tanggal" id="tanggal-pemakaian" type="date" class="validate" required="" aria-required="true">
                       <label class="active" for="tanggal-pemakaian">Tanggal Pemakaian</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="" id="jumlah-atk" type="text" class="validate" required="" aria-required="true">
+                      <input name="jumlah" id="jumlah-atk" type="text" class="validate" required="" aria-required="true">
                       <label for="jumlah-atk">Jumlah</label>
                     </div>
                   </div>
@@ -74,15 +76,17 @@
                 </tr>
               </thead>
               <tbody>
+			  <?php foreach (get_pemakaian() as $data) { ?>
                 <tr class="data-row">
-                  <td>Pakai1</td>
-                  <td>User1</td>
-                  <td>ATK2</td>
-                  <td>15/02/2016</td>
-                  <td>3</td>
+                  <td><?php echo $data['pid']; ?></td>
+				  <td><?php echo $data['p_uid']; ?></td>
+				  <td><?php echo $data['p_aid']; ?></td>
+                  <td><?php echo $data['tanggal']; ?></td>
+                  <td><?php echo $data['jumlah']; ?></td>
                   <td><div class="edit-btn"><a class="waves-effect waves-light btn modal-trigger orange darken-1" href="#edit-modal">Ubah</a></div></td>
-                  <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>               
+                  <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>             
                 </tr>
+				<?php } ?>
               </tbody>
             </table>
             <!-- Edit-Modal-->
@@ -135,7 +139,7 @@
                   <p>Anda yakin akan menghapus data ini ?</p>
                 </div>
                 <div class="modal-footer">
-                  <div><a href="#!" class="hapus btn waves-effect waves-light red darken-4" >Hapus</a></div>
+                  <div><a href="/ppl1/function/deletePemakaian.php" class="hapus btn waves-effect waves-light red darken-4" >Hapus</a></div>
                   <div><a href="#!" class=" btn waves-effect waves-light green darken-4" style="margin-right:20px">Batal</a></div>
                 </div>
               </div>
@@ -146,7 +150,7 @@
       <script type="text/javascript">
         $(document).ready(function(){
           //date picker init
-          initPage("tabel-pemakaian", ["id-pemakaian", "id-pengguna", "id-atk", "tanggal-pemakaian", "jumlah-atk"], "id-pemakaian", 5, 0, "Pakai", "index.php", "idPakai", 0); 
+          initPage("tabel-pemakaian", ["pid", "p_uid", "p_aid", "tanggal", "jumlah"], "pid", 5, 0, "pemakaian", "/ppl1/function/deletePemakaian.php", "pid", 0); 
         });
       </script>
       <script src="datepicker.js"></script>
