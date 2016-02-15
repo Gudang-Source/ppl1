@@ -106,7 +106,7 @@
                       <div class="row">
                         <div class="input-field col s6">
                           <input name="" id="id-atk" type="text" class="validate" required="" aria-required="true">
-                          <label class="edit-label" for="id-atk">ID ATK</label>
+                          <label class="edit-label active" for="id-atk">ID ATK</label>
                         </div>
                       </div> 
                       <div class="row"> 
@@ -145,10 +145,8 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-          //date picker init
           initPage("tabel-pemakaian", ["id-pemakaian", "id-pengguna", "id-atk", "tanggal-pemakaian", "jumlah-atk"], "id-pemakaian", 5, 0, "Pakai", "index.php", "idPakai", 0); 
         });
       </script>
-      <script src="datepicker.js"></script>
     </body>
   </html>
