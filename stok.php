@@ -1,7 +1,9 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <?php include('header.html'); ?>
+      <?php include('header.html');
+			require_once('database.php');
+		?>
       <title>SISTER | Stok</title>
     </head>
 
@@ -62,22 +64,18 @@
                 </tr>
               </thead>
               <tbody>
+			  
+				<?php foreach (get_ATK() as $data) { ?>
                 <tr class="data-row">
-                  <td>ATK1</td>
-                  <td>Spidol Hitam</td>
-                  <td>5</td>
-                  <td>3</td>
+                  <td><?php echo $data['aid']; ?></td>
+                  <td><?php echo $data['jenis']; ?></td>
+                  <td><?php echo $data['stok']; ?></td>
+                  <td><?php echo $data['stok_min']; ?></td>
                   <td><div class="edit-btn"><a class="waves-effect waves-light btn modal-trigger orange darken-1" href="#edit-modal">Ubah</a></div></td>
                   <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>               
                 </tr>
-                <tr class="data-row">
-                  <td>ATK2</td>
-                  <td>Ballpoint Merah</td>
-                  <td>10</td>
-                  <td>5</td>
-                  <td><div class="edit-btn"><a class="waves-effect waves-light btn modal-trigger orange darken-1" href="#edit-modal">Ubah</a></div></td>
-                  <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>               
-                </tr>
+				<?php } ?>
+				
               </tbody>
             </table>
             <!-- Edit-Modal-->

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <?php include('header.html'); ?>
+      <?php include('header.html');
+			require_once('database.php');
+		?>
       <title>SISTER | Supplier</title>
     </head>
 
@@ -48,12 +50,15 @@
                 </tr>
               </thead>
               <tbody>
+			  <?php foreach (get_supplier() as $data) { ?>
                 <tr class="data-row">
-                  <td>Supplier1</td>
-                  <td>Levanji</td>
+                  <td><?php echo $data['sid']; ?></td>
+                  <td><?php echo $data['nama']; ?></td>
+				  <td><?php echo $data['perusahaan']; ?></td>
                   <td><div class="edit-btn"><a class="waves-effect waves-light btn modal-trigger orange darken-1" href="#edit-modal">Ubah</a></div></td>
-                  <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>               
+                  <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>                
                 </tr>
+			  <?php } ?>
               </tbody>
             </table>
             <!-- Edit-Modal-->
