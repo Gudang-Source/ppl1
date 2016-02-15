@@ -18,17 +18,23 @@
             <div class="modal-content" style="height:100%">
               <h4>Tambah Supplier Baru</h4>
               <div class="row">
-                <form id="add-form" class="col s12" action="">
+                <form id="add-form" class="col s12" action="/ppl1/function/insertSupplier.php" method="get" name="insert">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input disabled name="" id="id-supplier" type="text" class="validate" required="" aria-required="true">
+                      <input name="sid" value="NULL" id="id-supplier" type="text" class="validate" required="" aria-required="true">
                       <label for="id-supplier">ID Supplier</label>
                     </div>
                   </div> 
                   <div class="row"> 
                     <div class="input-field col s6">
-                      <input name="" id="nama-supplier" type="text" class="validate" required="" aria-required="true">
+                      <input name="nama" id="nama-supplier" type="text" class="validate" required="" aria-required="true">
                       <label for="nama-supplier">Nama Supplier</label>
+                    </div>
+                  </div>
+				  <div class="row"> 
+                    <div class="input-field col s6">
+                      <input name="perusahaan" id="nama-perusahaan" type="text" class="validate" required="" aria-required="true">
+                      <label for="nama-perusahaan">Nama Perusahaan</label>
                     </div>
                   </div>
                   <div class="row">
@@ -47,6 +53,7 @@
                 <tr>
                     <th data-field="id-supplier">ID Supplier</th>
                     <th data-field="nama-supplier">Nama Supplier</th>
+					<th data-field="nama-perusahaan">Nama Perusahaan</th>
                 </tr>
               </thead>
               <tbody>
@@ -66,17 +73,23 @@
                 <div class="modal-content" style="height:100%">
                   <h4>Ubah Data Supplier</h4>
                   <div class="row">
-                    <form id="edit-form" class="col s12" action="">
+                    <form id="edit-form" class="col s12" action="/ppl1/function/editSupplier.php" method="get" name="edit">
                       <div class="row">
                         <div class="input-field col s6">
-                          <input disabled name="" id="id-supplier" type="text" class="validate" required="" aria-required="true">
+                          <input name="sid" id="id-supplier" type="text" class="validate" required="" aria-required="true" value = "NULL">
                           <label class="edit-label" for="id-supplier">ID Supplier</label>
                         </div>
                       </div> 
                       <div class="row"> 
                         <div class="input-field col s6">
-                          <input name="" id="nama-supplier" type="text" class="validate" required="" aria-required="true">
+                          <input name="nama" id="nama-supplier" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="nama-supplier">Nama Supplier</label>
+                        </div>
+                      </div>
+					  <div class="row"> 
+                        <div class="input-field col s6">
+                          <input name="perusahaan" id="nama-perusahaan" type="text" class="validate" required="" aria-required="true">
+                          <label class="edit-label" for="nama-perusahaan">Nama Perusahaan</label>
                         </div>
                       </div>
                       <div class="row">
@@ -93,8 +106,8 @@
                   <p>Anda yakin akan menghapus data ini ?</p>
                 </div>
                 <div class="modal-footer">
-                  <div><a href="#!" class="hapus btn waves-effect waves-light red darken-4" >Hapus</a></div>
-                  <div><a href="#!" class=" btn waves-effect waves-light green darken-4" style="margin-right:20px">Batal</a></div>
+                  <div><a href="/ppl1/function/deleteSupplier.php" class="hapus btn waves-effect waves-light red darken-4" >Hapus</a></div>
+                  <div><a href="supplier.php" class=" btn waves-effect waves-light green darken-4" style="margin-right:20px">Batal</a></div>
                 </div>
               </div>
 
@@ -103,7 +116,7 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-          initPage("tabel-supplier",["id-supplier","nama-supplier"],"id-supplier",8,0,"Supplier","index.php","idSupplier",0);
+          initPage("tabel-supplier",["sid","nama", "perusahaan"],"sid",8,0,"Supplier","/ppl1/function/deleteSupplier.php","sid",0);
         });  
       </script>
     </body>

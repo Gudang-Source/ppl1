@@ -94,34 +94,34 @@
                 <div class="modal-content" style="height:100%">
                   <h4>Ubah Data Pemakaian</h4>
                   <div class="row">
-                    <form id="edit-form" class="col s12" action="">
+                    <form id="edit-form" class="col s12" action="/ppl1/function/editPemakaian.php">
                       <div class="row">
                         <div class="input-field col s6">
-                          <input disabled name="" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
+                          <input name="pid" value="NULL" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-pemakaian">ID Pemakaian</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
+                          <input name="p_uid" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-pengguna">ID Pengguna</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="" id="id-atk" type="text" class="validate" required="" aria-required="true">
-                          <label class="edit-label active" for="id-atk">ID ATK</label>
+                          <input name="p_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
+                          <label class="edit-label" for="id-atk">ID ATK</label>
                         </div>
                       </div> 
                       <div class="row"> 
                         <div class="input-field col s6">
-                          <input name="" id="tanggal-pemakaian" type="date" class="validate" required="" aria-required="true">
+                          <input name="tanggal" id="tanggal-pemakaian" type="date" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="tanggal-pemakaian">Tanggal Pemakaian</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="" id="jumlah-atk" type="text" class="validate" required="" aria-required="true">
+                          <input name="jumlah" id="jumlah-atk" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="jumlah-atk">Jumlah</label>
                         </div>
                       </div>
@@ -153,5 +153,6 @@
           initPage("tabel-pemakaian", ["pid", "p_uid", "p_aid", "tanggal", "jumlah"], "pid", 5, 0, "pemakaian", "/ppl1/function/deletePemakaian.php", "pid", 0); 
         });
       </script>
+      <script src="datepicker.js"></script>
     </body>
   </html>
