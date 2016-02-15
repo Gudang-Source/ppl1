@@ -91,7 +91,7 @@ function get_booking(){
 function insert_ATK($aid, $jenis, $stok, $stok_min){
 /* Menambah ATK baru */
 	global $conn;
-	$query = "INSERT INTO ATK (aid, jenis, stok, stok_min) VALUES ($aid, $jenis, $stok, $stok_min)";
+	$query = "INSERT INTO ATK (aid, jenis, stok, stok_min) VALUES (NULL, $jenis, $stok, $stok_min)";
 	$rquery = mysqli_query($conn, $query);
 	
 	return $rquery;
@@ -100,7 +100,7 @@ function insert_ATK($aid, $jenis, $stok, $stok_min){
 function insert_user($uid, $nama){
 /* Menambah user */
 	global $conn;
-	$query = "INSERT INTO ATK (aid, nama) VALUES ($aid, $nama)";
+	$query = "INSERT INTO ATK (aid, nama) VALUES (NULL, $nama)";
 	$rquery = mysqli_query($conn, $query);
 	
 	return $rquery;
@@ -109,34 +109,34 @@ function insert_user($uid, $nama){
 function insert_supplier($sid, $jenis, $stok, $stok_min){
 /* Menambah supplier */
 	global $conn;
-	$query = "INSERT INTO ATK (sid, nama, perusahaan) VALUES ($sid, $nama, $perusahaan)";
+	$query = "INSERT INTO ATK (sid, nama, perusahaan) VALUES (NULL, $nama, $perusahaan)";
 	$rquery = mysqli_query($conn, $query);
 	
 	return $rquery;
 }
 
-function insert_pemakaian($jumlah, $tanggal, $p_uid, $p_aid){
+function insert_pemakaian($pid, $jumlah, $tanggal, $p_uid, $p_aid){
 /* Menambah pemakaian */
 	global $conn;
-	$query = "INSERT INTO pemakaian (jumlah, tanggal, p_uid, p_aid) VALUES ($jumlah, $tanggal, (SELECT uid, aid FROM user NATURAL JOIN ATK WHERE (uid = $p_uid) AND (aid = $p_aid)))";
+	$query = "INSERT INTO pemakaian (pid, jumlah, tanggal, p_uid, p_aid) VALUES (NULL, $jumlah, $tanggal, (SELECT uid, aid FROM user NATURAL JOIN ATK WHERE (uid = $p_uid) AND (aid = $p_aid)))";
 	$rquery = mysqli_query($conn, $query);
 	
 	return $rquery;
 }
 
-function insert_booking($jumlah, $tanggal, $b_uid, $b_aid){
+function insert_booking($bid, $jumlah, $tanggal, $b_uid, $b_aid){
 /* Menambah booking */
 	global $conn;
-	$query = "INSERT INTO booking (jumlah, tanggal, p_uid, p_aid) VALUES ($jumlah, $tanggal, (SELECT uid, aid FROM user NATURAL JOIN ATK WHERE (uid = $b_uid) AND (aid = $b_aid)))";
+	$query = "INSERT INTO booking (bid, jumlah, tanggal, p_uid, p_aid) VALUES (NULL, $jumlah, $tanggal, (SELECT uid, aid FROM user NATURAL JOIN ATK WHERE (uid = $b_uid) AND (aid = $b_aid)))";
 	$rquery = mysqli_query($conn, $query);
 	
 	return $rquery;
 }
 
-function insert_pengadaan($jumlah, $tgl_pesan, $tgl_datang, $p_sid, $p_aid){
+function insert_pengadaan($aid, $jumlah, $tgl_pesan, $tgl_datang, $p_sid, $p_aid){
 /* Menambah pengadaan */
 	global $conn;
-	$query = "INSERT INTO pengadaan (jumlah, tgl_pesan, tgl_datang, p_sid, p_aid) VALUES ($jumlah, $tgl_pesan, $tgl_datang, (SELECT sid, aid FROM supplier NATURAL JOIN ATK WHERE (sid = $a_sid) AND (aid = $a_aid)))";
+	$query = "INSERT INTO pengadaan (aid, jumlah, tgl_pesan, tgl_datang, p_sid, p_aid) VALUES (NULL, $jumlah, $tgl_pesan, $tgl_datang, (SELECT sid, aid FROM supplier NATURAL JOIN ATK WHERE (sid = $a_sid) AND (aid = $a_aid)))";
 	$rquery = mysqli_query($conn, $query);
 	
 	return $rquery;
