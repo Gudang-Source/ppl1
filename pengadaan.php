@@ -8,13 +8,14 @@
     <body>
       <?php include('navbar.html'); ?>
 	  </nav>
-
+      
+       
 
       <?php include('footer.html'); ?>
-
+      
       <!--js-->
       <script type="text/javascript">
-        document.getElementById("pengadaan").className += "active";
+        
       </script>
     </body>
   </html>
