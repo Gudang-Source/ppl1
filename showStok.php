@@ -1,8 +1,7 @@
 <?php
-$query = "SELECT * FROM atk";
-$result = mysql_query($query);
+include "database.php";
 
-while ($data = mysql_fetch_array($result))
+while ($data = get_ATK())
 {
     echo
     "<tr>
