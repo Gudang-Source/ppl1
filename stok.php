@@ -135,7 +135,7 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-          initPage("tabel-stok",["id-atk","jenis-atk","jumlah-atk","stok-min"],"id-atk",3,0,"ATK","index.php","idAtk",0);
+          initPage("tabel-stok",["aid","jenis","stok","stok_min"],"aid",3,0,"ATK","/ppl1/function/deleteATK.php","aid",0);
         });  
       </script>
     </body>
