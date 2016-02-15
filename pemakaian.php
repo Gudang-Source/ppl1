@@ -149,12 +149,8 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-<<<<<<< HEAD
           //date picker init
           initPage("tabel-pemakaian", ["pid", "p_uid", "p_aid", "tanggal", "jumlah"], "pid", 5, 0, "pemakaian", "/ppl1/function/deletePemakaian.php", "pid", 0); 
-=======
-          initPage("tabel-pemakaian", ["id-pemakaian", "id-pengguna", "id-atk", "tanggal-pemakaian", "jumlah-atk"], "id-pemakaian", 5, 0, "Pakai", "index.php", "idPakai", 0); 
->>>>>>> origin/master
         });
       </script>
     </body>
