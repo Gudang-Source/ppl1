@@ -36,9 +36,12 @@ function initPage(tableId, tableAttr, autoIncAttr, trimIdx, attrIdx, attrName, d
     var trimId = idRecord.eq(attrIdx).text();
     var incNum = (parseInt(trimId.substring(trimIdx))+1);
     newId = attrName+incNum;
+    console.log("a\n");
   }
   else{
     newId = attrName+"1";
+    console.log(newId);
   }
+  console.log("c\n");
   $("#add-modal").find("#"+tableAttr).val(newId);
 }

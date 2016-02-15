@@ -2,7 +2,7 @@
 	include("../Connect.php");
 
 	global $conn;
-	$query = "UPDATE ATK SET uid = '".$_GET["uid"]."', nama = '".$_GET["nama"]."' WHERE uid = '".$_GET["uid"]."'";
+	$query = "UPDATE user SET uid = '".$_GET["uid"]."', nama = '".$_GET["nama"]."' WHERE uid = '".$_GET["uid"]."'";
 	
 	$rquery = mysqli_query($conn, $query);
 	

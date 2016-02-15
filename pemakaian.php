@@ -26,7 +26,7 @@
                 <form id="add-form" class="col s12" action="/ppl1/function/insertPemakaian.php" method="get" name = "insert">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="pid" value="NULL" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
+                      <input readonly="readonly" name="pid" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
                       <label for="id-pemakaian">ID Pemakaian</label>
                     </div>
                   </div>
@@ -97,7 +97,7 @@
                     <form id="edit-form" class="col s12" action="/ppl1/function/editPemakaian.php">
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="pid" value="NULL" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
+                          <input readonly="readonly" name="pid" id="id-pemakaian" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-pemakaian">ID Pemakaian</label>
                         </div>
                       </div>
@@ -150,7 +150,7 @@
       <script type="text/javascript">
         $(document).ready(function(){
           //date picker init
-          initPage("tabel-pemakaian", ["pid", "p_uid", "p_aid", "tanggal", "jumlah"], "pid", 5, 0, "pemakaian", "/ppl1/function/deletePemakaian.php", "pid", 0); 
+          initPage("tabel-pemakaian", ["id-pemakaian", "id-pengguna", "id-atk", "tanggal-pemakaian", "jumlah-atk"], "id-pemakaian", 5, 0, "Pakai", "/ppl1/function/deletePemakaian.php", "pid", 0); 
         });
       </script>
       <script src="datepicker.js"></script>

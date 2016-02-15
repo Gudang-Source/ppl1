@@ -21,7 +21,7 @@
                 <form id="add-form" class="col s12" action="/ppl1/function/insertUser.php" method="get" name="insert">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="uid" value="NULL" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
+                      <input readonly="readonly" name="uid" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
                       <label for="id-pengguna">ID Pengguna</label>
                     </div>
                   </div> 
@@ -68,7 +68,7 @@
                     <form id="edit-form" class="col s12" action="/ppl1/function/editUser.php">
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="uid" value="NULL" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
+                          <input readonly="readonly" name="uid" value="NULL" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-pengguna">ID Pengguna</label>
                         </div>
                       </div> 
@@ -102,7 +102,7 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-          initPage("tabel-pengguna",["uid","nama"],"uid",4,0,"User","/ppl1/function/deleteUser.php","uid",0);
+          initPage("tabel-pengguna",["id-pengguna","nama-pengguna"],"id-pengguna",4,0,"User","/function/deleteUser.php","uid",0);
         });  
       </script>
     </body>

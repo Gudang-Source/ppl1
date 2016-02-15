@@ -20,7 +20,7 @@
                 <form id="add-form" class="col s12" action="">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input disabled name="" id="id-pengadaan" type="text" class="validate" required="" aria-required="true">
+                      <input readonly="readonly" name="" id="id-pengadaan" type="text" class="validate" required="" aria-required="true">
                       <label for="id-pengadaan">ID Pengadaan</label>
                     </div>
                   </div>
@@ -97,7 +97,7 @@
                     <form id="edit-form" class="col s12" action="">
                       <div class="row">
                     <div class="input-field col s6">
-                      <input disabled name="" id="id-pengadaan" type="text" class="validate" required="" aria-required="true">
+                      <input readonly="readonly" name="" id="id-pengadaan" type="text" class="validate" required="" aria-required="true">
                       <label class="edit-label" for="id-pengadaan">ID Pengadaan</label>
                     </div>
                   </div>

@@ -21,7 +21,7 @@
                 <form id="add-form" class="col s12" action="/ppl1/function/insertATK.php" method="get" name = "insert">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input id="id-atk" type="text" class="validate" required="" aria-required="true" name="aid" value = "NULL">
+                      <input readonly="readonly" id="id-atk" type="text" class="validate" required="" aria-required="true" name="aid">
                       <label for="id-atk">ID ATK</label>
                     </div>
                   </div> 
@@ -85,7 +85,7 @@
                     <form id="edit-form" class="col s12" action="/ppl1/function/editATK.php" method="get" name="edit">
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="aid" id="id-atk" type="text" class="validate" required="" aria-required="true" value = "NULL" name = "aid">
+                          <input readonly="readonly" name="aid" id="id-atk" type="text" class="validate" required="" aria-required="true" value = "NULL" name = "aid">
                           <label class="edit-label" for="id-atk">ID ATK</label>
                         </div>
                       </div> 
@@ -135,7 +135,7 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-          initPage("tabel-stok",["aid","jenis","stok","stok_min"],"aid",3,0,"ATK","/ppl1/function/deleteATK.php","aid",0);
+          initPage("tabel-stok",["id-atk","jenis-atk","jumlah-atk","stok-min"],"id-atk",3,0,"ATK","function/deleteATK.php","aid",0);
         });  
       </script>
     </body>

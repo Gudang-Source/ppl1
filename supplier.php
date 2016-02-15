@@ -21,7 +21,7 @@
                 <form id="add-form" class="col s12" action="/ppl1/function/insertSupplier.php" method="get" name="insert">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="sid" value="NULL" id="id-supplier" type="text" class="validate" required="" aria-required="true">
+                      <input readonly="readonly" name="sid" value="NULL" id="id-supplier" type="text" class="validate" required="" aria-required="true">
                       <label for="id-supplier">ID Supplier</label>
                     </div>
                   </div> 
@@ -31,7 +31,7 @@
                       <label for="nama-supplier">Nama Supplier</label>
                     </div>
                   </div>
-				  <div class="row"> 
+				          <div class="row"> 
                     <div class="input-field col s6">
                       <input name="perusahaan" id="nama-perusahaan" type="text" class="validate" required="" aria-required="true">
                       <label for="nama-perusahaan">Nama Perusahaan</label>
@@ -61,7 +61,7 @@
                 <tr class="data-row">
                   <td><?php echo $data['sid']; ?></td>
                   <td><?php echo $data['nama']; ?></td>
-				  <td><?php echo $data['perusahaan']; ?></td>
+				          <td><?php echo $data['perusahaan']; ?></td>
                   <td><div class="edit-btn"><a class="waves-effect waves-light btn modal-trigger orange darken-1" href="#edit-modal">Ubah</a></div></td>
                   <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>                
                 </tr>
@@ -76,7 +76,7 @@
                     <form id="edit-form" class="col s12" action="/ppl1/function/editSupplier.php" method="get" name="edit">
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="sid" id="id-supplier" type="text" class="validate" required="" aria-required="true" value = "NULL">
+                          <input readonly="readonly" name="sid" id="id-supplier" type="text" class="validate" required="" aria-required="true" value = "NULL">
                           <label class="edit-label" for="id-supplier">ID Supplier</label>
                         </div>
                       </div> 
@@ -86,7 +86,7 @@
                           <label class="edit-label" for="nama-supplier">Nama Supplier</label>
                         </div>
                       </div>
-					  <div class="row"> 
+					            <div class="row"> 
                         <div class="input-field col s6">
                           <input name="perusahaan" id="nama-perusahaan" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="nama-perusahaan">Nama Perusahaan</label>
@@ -116,7 +116,7 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-          initPage("tabel-supplier",["sid","nama", "perusahaan"],"sid",8,0,"Supplier","/ppl1/function/deleteSupplier.php","sid",0);
+          initPage("tabel-supplier",["id-supplier","nama-supplier", "nama-perusahaan"],"id-supplier",8,0,"Supplier","/ppl1/function/deleteSupplier.php","sid",0);
         });  
       </script>
     </body>
