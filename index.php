@@ -9,7 +9,7 @@
     <body>
     <?php include('navbar.html'); ?>
 	  <div id="sister" class="container">Sistem Informasi Sarpras Terstruktur</div>
-      
+    <div id="image" class="container"><img src="image.jpg" style="max-width:100%; max-height:100%"></div>  
 
       <?php include('footer.html'); ?>
     </body>
