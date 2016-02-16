@@ -109,7 +109,7 @@
                       </div>
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="p_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
+                          <input readonly="readonly" name="p_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-atk">ID ATK</label>
                         </div>
                       </div> 
