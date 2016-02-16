@@ -35,14 +35,14 @@
                       <input name="" id="id-atk" type="text" class="validate" required="" aria-required="true">
                       <label for="id-atk">ID ATK</label>
                     </div>
-                  </div> 
-                  <div class="row"> 
+                  </div>
+                  <div class="row">
                     <div class="input-field col s6">
                       <input name="" id="tanggal-pemesanan" type="date" class="validate" required="" aria-required="true">
                       <label class="active" for="tanggal-pemesanan">Tanggal Pemesanan</label>
                     </div>
                   </div>
-                  <div class="row"> 
+                  <div class="row">
                     <div class="input-field col s6">
                       <input name="" id="tanggal-kedatangan" type="date" class="validate" required="" aria-required="true">
                       <label class="active" for="tanggal-kedatangan">Tanggal Kedatangan</label>
@@ -77,16 +77,20 @@
                 </tr>
               </thead>
               <tbody>
+
+                <?php foreach (get_pengadaan() as $data) { ?>
                 <tr class="data-row">
-                  <td>Pesan1</td>
-                  <td>Supp1</td>
-                  <td>ATK2</td>
-                  <td>15/02/2016</td>
-                  <td>16/02/2016</td>
-                  <td>3</td>
+                  <td><?php echo $data['aid'];?></td> // ID Pengadaan
+                  <td><?php echo $data['a_sid'];?></td> // ID Supplier
+                  <td><?php echo $data['a_aid'];?></td> // ID ATK
+                  <td><?php echo $data['tgl_pesan'];?></td> // Tanggal pesan
+                  <td><?php echo $data['tgl_datang']; ?></td> // Tanggal datang
+                  <td><?php echo $data['jumlah'];?></td> // Jumlah
                   <td><div class="edit-btn"><a class="waves-effect waves-light btn modal-trigger orange darken-1" href="#edit-modal">Ubah</a></div></td>
-                  <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>               
+                  <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>
                 </tr>
+                <?php } ?>
+
               </tbody>
             </table>
             <!-- Edit-Modal-->
@@ -112,14 +116,14 @@
                       <input name="" id="id-atk" type="text" class="validate" required="" aria-required="true">
                       <label class="edit-label" for="id-atk">ID ATK</label>
                     </div>
-                  </div> 
-                  <div class="row"> 
+                  </div>
+                  <div class="row">
                     <div class="input-field col s6">
                       <input name="" id="tanggal-pemesanan" type="date" class="validate" required="" aria-required="true">
                       <label class="edit-label" for="tanggal-pemesanan">Tanggal Pemesanan</label>
                     </div>
                   </div>
-                  <div class="row"> 
+                  <div class="row">
                     <div class="input-field col s6">
                       <input name="" id="tanggal-kedatangan" type="date" class="validate" required="" aria-required="true">
                       <label class="edit-label" for="tanggal-kedatangan">Tanggal Kedatangan</label>
@@ -150,13 +154,13 @@
                 </div>
               </div>
       </div>
-       
+
 
       <?php include('footer.html'); ?>
-      
+
       <!--js-->
       <script type="text/javascript">
-        initPage("tabel-pengadaan", ["id-pengadaan", "id-supplier", "id-atk", "tanggal-pemesanan", "tanggal-kedatangan", "jumlah-atk"], "id-pengadaan", 5, 0, "Pesan", "index.php", "idPakai", 0); 
+        initPage("tabel-pengadaan", ["id-pengadaan", "id-supplier", "id-atk", "tanggal-pemesanan", "tanggal-kedatangan", "jumlah-atk"], "id-pengadaan", 5, 0, "Pesan", "index.php", "idPakai", 0);
       </script>
     </body>
   </html>
