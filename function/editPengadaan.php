@@ -6,15 +6,15 @@
 	$query = "SELECT aid FROM ATK WHERE aid = '".$_GET["a_aid"]."'";
 	$ratk = mysqli_query($conn, $query);
 	$query = "SELECT sid FROM supplier WHERE sid = '".$_GET["a_sid"]."'";
-	$ruser = mysqli_query($conn, $query);
+	$rsupp = mysqli_query($conn, $query);
 	$atk = mysqli_fetch_array($ratk, MYSQLI_NUM);
 	$atkid = (int)$atk[0];
-	$user = mysqli_fetch_array($ruser, MYSQLI_NUM);
-	$userid = (int)$user[0];
-	echo $atkid;
-	echo $userid;
+	$supp = mysqli_fetch_array($rsupp, MYSQLI_NUM);
+	$suppid = (int)$supp[0];
+	// echo $atkid;
+	// echo $suppid;
 	
-	if (($atkid == 0) || ($userid == 0)){
+	if (is_null($atkid) || is_null($suppid)){
 		header("Location: ../errorDatabase.php");
 		die();
 	}

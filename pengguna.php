@@ -102,7 +102,7 @@
       <!--js-->
       <script type="text/javascript">
         $(document).ready(function(){
-          initPage("tabel-pengguna",["id-pengguna","nama-pengguna"],"id-pengguna",4,0,"User","/function/deleteUser.php","uid",0);
+          initPage("tabel-pengguna",["id-pengguna","nama-pengguna"],"id-pengguna",4,0,"User","function/deleteUser.php","uid",0);
         });  
       </script>
     </body>

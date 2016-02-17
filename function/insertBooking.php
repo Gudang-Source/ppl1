@@ -13,6 +13,9 @@
 		die();
 	}
 	
+	$query = "SELECT stok FROM ATK WHERE aid = '".$_GET["b_aid"]."'";
+	$rstok = mysqli_query($conn, $query);
+
 	$stok = mysqli_fetch_array($rstok, MYSQLI_NUM);
 	$stoklama = (int)$stok[0];
 	

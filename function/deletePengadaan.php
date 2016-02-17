@@ -6,6 +6,7 @@
 	$rstok = mysqli_query($conn, $query);
 	$old = mysqli_fetch_array($rstok, MYSQLI_NUM);
 	$jumlah = (int)$old[0];
+
 	$query = "SELECT stok FROM ATK WHERE aid = '".$old[1]."'";
 	$rstok = mysqli_query($conn, $query);
 	
@@ -15,8 +16,7 @@
 	
 	$stokbaru = $stoklama - $jumlah;
 	
-	$rstokbaru = (string)$stokbaru;
-	$query = "UPDATE ATK SET stok = '".$rstokbaru."' WHERE aid = '".$old[1]."'";
+	$query = "UPDATE ATK SET stok = '".$stokbaru."' WHERE aid = '".$old[1]."'";
 	$rquery = mysqli_query($conn, $query);
 
 

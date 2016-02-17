@@ -17,10 +17,7 @@
 	echo $jumlah;
 	$stokbaru = $stoklama + $jumlah;
 	
-	$rstokbaru = (string)$stokbaru;
-	echo $rstokbaru;
-	
-	$query = "UPDATE ATK SET stok = '".$rstokbaru."' WHERE aid = '".$old[3]."'";
+	$query = "UPDATE ATK SET stok = '".$stokbaru."' WHERE aid = '".$old[3]."'";
 	$rquery = mysqli_query($conn, $query);
 
 
