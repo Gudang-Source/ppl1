@@ -24,6 +24,7 @@ function initPage(tableId, tableAttr, autoIncAttr, trimIdx, attrIdx, attrName, d
   //set delete mode val
   $(document).on("click", ".delete-btn", function(){
       var deleteRecord = $(this).parent().siblings().eq(deleteAttrIdx).text();
+      $("#delete-modal").find("p").text("Anda yakin akan menghapus \"" + deleteRecord + "\" ?");
       $(document).on("click", ".hapus", function(){
         $(this).attr("href",deleteLink+"?"+deleteAttr+"="+deleteRecord);
       });
@@ -35,13 +36,11 @@ function initPage(tableId, tableAttr, autoIncAttr, trimIdx, attrIdx, attrName, d
   if(idRecord.length){
     var trimId = idRecord.eq(attrIdx).text();
     var incNum = (parseInt(trimId.substring(trimIdx))+1);
-    newId = attrName+incNum;
-    console.log("a\n");
+    newId = attrName+incNum;  
   }
   else{
-    newId = attrName+"1";
-    console.log(newId);
+    newId = attrName+"1"; 
   }
-  console.log("c\n");
+
   $("#add-modal").find("#"+tableAttr).val(newId);
 }
