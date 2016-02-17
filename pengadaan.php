@@ -11,8 +11,39 @@
       <?php include('navbar.html'); ?>
 	  </nav>
       <div class="container">
+        <!-- Kebutuhan Pengadaan -->
+        <div id="kebutuhan">Kebutuhan</div>
+        <div class="row">
+          <div class="col s12">
+            <!-- Tabel Stok-->
+            <table id="tabel-kebutuhan" class="tabel centered">
+              <thead>
+                <tr>
+                    <th data-field="id-atk">ID ATK</th>
+                    <th data-field="id-atk">Jenis ATK</th>
+                    <th data-field="jumlah-atk">Stok</th>
+                    <th data-field="stok-min">Stok Minimum</th>
+                    <th data-field="kebutuhan">Kebutuhan</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <?php foreach (get_kebutuhan() as $data) { ?>
+                <tr class="data-row">
+                  <td><?php echo $data['aid'];?></td>
+                  <td><?php echo $data['jenis'];?></td>
+                  <td><?php echo $data['stok'];?></td>
+                  <td><?php echo $data['stok_min'];?></td>
+                  <td class="warning"><?php echo $data['kebutuhan'];?></td>
+                </tr>
+                <?php } ?>
+
+              </tbody>
+            </table>
+
+
         <!--Add-Modal -->
-        <div class="button-row">
+        <div class="button-row" style="margin-top:150px">
           <a class="add-btn waves-effect waves-light btn modal-trigger green darken-1" href="#add-modal">Tambah Baru</a>
           <!-- Modal Structure -->
           <div id="add-modal" class="modal modal-fixed-footer">
@@ -65,6 +96,7 @@
           </div>
         </div>
         <div class="row">
+          <div id="pengadaan">Pengadaan</div>
           <div class="col s12">
             <!-- Tabel Stok-->
             <table id="tabel-pengadaan" class="tabel centered">

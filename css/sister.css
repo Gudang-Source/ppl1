@@ -6,7 +6,7 @@
 }
 
 .tabel{
-	margin-top: 50px;
+	margin-top: 35px;
 	table-layout: fixed;
 }
 
@@ -58,4 +58,16 @@
   stroke: red;
   /* The width of your bars */
   stroke-width: 25px;
+}
+
+#kebutuhan, #pengadaan{
+	text-align:center; 
+	margin-top:20px; 
+	font-size:25px;
+	font-weight: bold;
+}
+
+.warning{
+	color: red;
+	font-weight: bold;
 }

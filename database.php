@@ -258,5 +258,16 @@ function delete_pengadaan($aid){
 
 }
 
+function get_kebutuhan(){
+	$stokATK = get_ATK();
+	$filteredATK = array();
+	foreach ($stokATK as $data){
+		if($data["stok"] < $data["stok_min"]){
+			$data["kebutuhan"] = $data["stok_min"] - $data["stok"];
+			$filteredATK[] = $data;
+		}
+	}
+	return $filteredATK;
+}
 
 ?>
