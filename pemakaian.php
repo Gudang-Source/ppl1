@@ -140,7 +140,7 @@
                 </div>
                 <div class="modal-footer">
                   <div><a href="/ppl1/function/deletePemakaian.php" class="hapus btn waves-effect waves-light red darken-4" >Hapus</a></div>
-                  <div><a href="#!" class=" btn waves-effect waves-light green darken-4" style="margin-right:20px">Batal</a></div>
+                  <div><a href="pemakaian.php" class=" btn waves-effect waves-light green darken-4" style="margin-right:20px">Batal</a></div>
                 </div>
               </div>
       </div>
