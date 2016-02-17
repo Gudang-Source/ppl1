@@ -2,10 +2,17 @@
 	include("../Connect.php");
 
 	global $conn;
-	$query = "INSERT INTO pemakaian (pid, jumlah, tanggal, p_uid, p_aid) VALUES ('".$_GET["pid"]."', '".$_GET["jumlah"]."', '".$_GET["tanggal"]."', '".$_GET["p_uid"]."', '".$_GET["p_aid"]."')";
 	
-	$rquery = mysqli_query($conn, $query);
+	$query = "SELECT aid FROM ATK WHERE aid = '".$_GET["p_aid"]."'";
+	$ratk = mysqli_query($conn, $query);
+	$query = "SELECT uid FROM user WHERE uid = '".$_GET["p_uid"]."'";
+	$ruser = mysqli_query($conn, $query);
 
+	if (is_null($ratk) || is_null($ruser)){
+		header("Location: ../errorDatabase.php");
+		die();
+	}
+	
 	$query = "SELECT stok FROM ATK WHERE aid = '".$_GET["p_aid"]."'";
 	$rstok = mysqli_query($conn, $query);
 	
@@ -19,10 +26,21 @@
 	$rstokbaru = (string)$stokbaru;
 	echo $rstokbaru;
 	
-	$query = "UPDATE ATK SET stok = '".$rstokbaru."' WHERE aid = '".$_GET["p_aid"]."'";
-	$rquery = mysqli_query($conn, $query);
-	
-	header("Location: ../pemakaian.php");
-	die();
+	if ($stokbaru >= 0 && $jumlah > 0){
+		$query = "INSERT INTO pemakaian (pid, jumlah, tanggal, p_uid, p_aid) VALUES ('".$_GET["pid"]."', '".$_GET["jumlah"]."', '".$_GET["tanggal"]."', '".$_GET["p_uid"]."', '".$_GET["p_aid"]."')";
+		
+		$rquery = mysqli_query($conn, $query);
+
+		
+		
+		$query = "UPDATE ATK SET stok = '".$rstokbaru."' WHERE aid = '".$_GET["p_aid"]."'";
+		$rquery = mysqli_query($conn, $query);
+		
+		header("Location: ../pemakaian.php");
+		die();
+	} else {
+		header("Location: ../errorStok.php");
+		die();
+	}
 ?>
 
