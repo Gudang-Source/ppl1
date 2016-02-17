@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2016 at 01:38 AM
+-- Generation Time: Feb 17, 2016 at 07:05 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -33,6 +33,20 @@ CREATE TABLE `atk` (
   `stok_min` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `atk`
+--
+
+INSERT INTO `atk` (`aid`, `jenis`, `stok`, `stok_min`) VALUES
+('ATK1', 'Spidol Hitam', 34, 15),
+('ATK2', 'Kertas HVS', 393, 500),
+('ATK3', 'Gunting', 19, 5),
+('ATK4', 'Ballpoint', 30, 10),
+('ATK5', 'Spidol Merah', 12, 10),
+('ATK6', 'Pensil', 5, 5),
+('ATK7', 'Penghapus Whiteboard', 12, 5),
+('ATK8', 'Kertas Folio', 200, 100);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +60,13 @@ CREATE TABLE `booking` (
   `b_uid` varchar(11) NOT NULL,
   `b_aid` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`bid`, `jumlah`, `tanggal`, `b_uid`, `b_aid`) VALUES
+('Book1', 5, '2016-02-20', 'User4', 'ATK6');
 
 -- --------------------------------------------------------
 
@@ -66,8 +87,13 @@ CREATE TABLE `pemakaian` (
 --
 
 INSERT INTO `pemakaian` (`jumlah`, `tanggal`, `p_uid`, `p_aid`, `pid`) VALUES
-(1, '2016-02-14', 'User1', 'ATK4', 'Pakai2'),
-(10, '2016-02-15', 'User2', 'ATK3', 'Pakai3');
+(15, '2016-02-16', 'User1', 'ATK2', 'Pakai1'),
+(1, '2016-02-16', 'User1', 'ATK3', 'Pakai2'),
+(3, '2016-02-10', 'User2', 'ATK5', 'Pakai3'),
+(10, '2016-02-16', 'User3', 'ATK5', 'Pakai4'),
+(2, '2016-02-15', 'User1', 'ATK2', 'Pakai5'),
+(1, '2016-02-16', 'User4', 'ATK1', 'Pakai6'),
+(3, '2016-02-17', 'User2', 'ATK7', 'Pakai7');
 
 -- --------------------------------------------------------
 
@@ -83,6 +109,13 @@ CREATE TABLE `pengadaan` (
   `a_sid` varchar(11) NOT NULL,
   `a_aid` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengadaan`
+--
+
+INSERT INTO `pengadaan` (`aid`, `jumlah`, `tgl_pesan`, `tgl_datang`, `a_sid`, `a_aid`) VALUES
+('Pesan1', 5, '2016-01-01', '2016-02-01', 'Supplier1', 'ATK1');
 
 -- --------------------------------------------------------
 
@@ -101,8 +134,8 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`sid`, `nama`, `perusahaan`) VALUES
-('Supplier1', 'Edwin', 'X'),
-('Supplier2', 'Vanji', 'Y');
+('Supplier1', 'X', 'PaperOne'),
+('Supplier2', 'Y', 'Snowman');
 
 -- --------------------------------------------------------
 
@@ -121,7 +154,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`uid`, `nama`) VALUES
 ('User1', 'Raka'),
-('User2', 'Nitho');
+('User2', 'Nitho'),
+('User3', 'Edwin'),
+('User4', 'Levanji');
 
 --
 -- Indexes for dumped tables
