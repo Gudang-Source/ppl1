@@ -20,33 +20,32 @@
 	
       <!--js-->
       <script type="text/javascript">
-	    <?php
-			include ("Connect.php");
-			global $conn;
-			
-			$query = "SELECT nama, COUNT(nama) FROM user JOIN pemakaian ON user.uid = pemakaian.p_uid GROUP BY nama";
-			
-			$rquery = mysqli_query($conn, $query);
-			$row = mysqli_fetch_array($rquery, MYSQLI_NUM);
-			$rowcount = mysqli_num_rows($rquery);
-			$arrcount = $rowcount * 2;
-	    ?>
-		
-		var arr = [<?php echo '"'.implode('","', $row).'"' ?>];
-		var arr_labels;
-		var i;
-		/*for (i = 0; i < 3; i++){
-			arr_labels[i] = arr[i*2];
-		} --> ini yang bikin ga keluar grafik nya */ 
-		
-		var arr_series;
-		
-		var i = 0;
+  	    <?php
+    			include ("Connect.php");
+    			global $conn;
+    			
+    			$query = "SELECT nama, COUNT(nama) AS jumlah FROM user JOIN pemakaian ON user.uid = pemakaian.p_uid GROUP BY nama";
+    			
+    			$rquery = mysqli_query($conn, $query);
+    			$stat = array();
+    			while ($row = mysqli_fetch_array($rquery, MYSQLI_ASSOC)){
+            $stat[] = $row;
+          }
+          
+  	    ?>
+        var arr=<?php echo json_encode($stat);?>;
+    		var arr_labels=[];
+        var arr_series=[];
+    		var i;
+    		for (i = 0; i<arr.length; i++){
+    			arr_labels.push(arr[i].nama);
+          arr_series.push(arr[i].jumlah);
+        }
+        // console.log(arr_labels);
+        // console.log(arr_series);
         var data = {
-          labels: ['Edwin', 'Levanji', 'Raka', 'Nitho'],
-          series: [
-            [10, 4, 3, 7]
-          ]
+          labels: arr_labels,
+          series: [arr_series]
         };
 
         var options = {
@@ -67,7 +66,7 @@
           }]
         ];
         new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
-      
+          
       </script>
     </body>
   </html>
