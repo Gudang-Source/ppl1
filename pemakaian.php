@@ -63,7 +63,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col s10">
+          <div class="col s12">
             <!-- Tabel Stok-->
             <table id="tabel-pemakaian" class="tabel centered">
               <thead>
