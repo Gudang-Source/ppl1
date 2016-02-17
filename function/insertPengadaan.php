@@ -8,9 +8,9 @@
 	$query = "SELECT sid FROM supplier WHERE sid = '".$_GET["a_sid"]."'";
 	$ruser = mysqli_query($conn, $query);
 	$atk = mysqli_fetch_array($ratk, MYSQLI_NUM);
-	$atkid = (int)$stok[0];
+	$atkid = (int)$atk[0];
 	$user = mysqli_fetch_array($ruser, MYSQLI_NUM);
-	$userid = (int)$stok[0];
+	$userid = (int)$user[0];
 	echo $stoklama;
 	
 	if (($atkid == 0) || ($userid == 0)){

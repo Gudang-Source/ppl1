@@ -8,7 +8,7 @@
 	$query = "SELECT uid FROM user WHERE uid = '".$_GET["b_uid"]."'";
 	$ruser = mysqli_query($conn, $query);
 
-	if (is_null($rstok) || is_null($ruser)){
+	if (is_null($ratk) || is_null($ruser)){
 		header("Location: ../errorDatabase.php");
 		die();
 	}
