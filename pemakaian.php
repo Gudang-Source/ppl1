@@ -5,11 +5,6 @@
 			require_once("database.php");
 			?>
       <title>SISTER | Pemakaian</title>
-      <style>
-        .datepicker{
-          z-index: 1200;
-        }
-      </style>
     </head>
 
     <body>
@@ -153,6 +148,5 @@
           initPage("tabel-pemakaian", ["id-pemakaian", "id-pengguna", "id-atk", "tanggal-pemakaian", "jumlah-atk"], "id-pemakaian", 5, 0, "Pakai", "/ppl1/function/deletePemakaian.php", "pid", 0); 
         });
       </script>
-      <script src="datepicker.js"></script>
     </body>
   </html>
