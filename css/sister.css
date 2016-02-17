@@ -46,9 +46,16 @@
 }
 
 .tambahkan, .ubah{
-		float:right;
+	float:right;
 }
 
 #edit-modal{
 	width: 30%;
+}
+
+.ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: red;
+  /* The width of your bars */
+  stroke-width: 25px;
 }
