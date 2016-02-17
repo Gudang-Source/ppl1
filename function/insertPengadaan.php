@@ -29,6 +29,6 @@
     $query = "UPDATE ATK SET stok = '".$rstokbaru."' WHERE aid = '".$_GET["a_aid"]."'";
 	$rquery = mysqli_query($conn, $query);
 
-    header("Location: ../stok.php");
+    header("Location: ../pengadaan.php");
     die();
 ?>
