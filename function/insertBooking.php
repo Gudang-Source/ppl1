@@ -23,7 +23,7 @@
 	$rstokbaru = (string)$stokbaru;
 	echo $rstokbaru;
 	
-	if ($stokbaru >= 0){
+	if ($stokbaru >= 0 && $jumlah > 0){
 		$query = "INSERT INTO booking (bid, jumlah, tanggal, b_uid, b_aid) VALUES ('".$_GET["bid"]."', '".$_GET["jumlah"]."', '".$_GET["tanggal"]."', '".$_GET["b_uid"]."', '".$_GET["b_aid"]."')";
 		
 		$rquery = mysqli_query($conn, $query);

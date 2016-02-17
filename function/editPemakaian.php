@@ -26,7 +26,7 @@
 	$rstokbaru = (string)$stokbaru;
 	echo $rstokbaru;
 	
-	if ($stokbaru >= 0){
+	if ($stokbaru >= 0 && jumlah > 0){
 		$query = "SELECT jumlah FROM pemakaian WHERE pid = '".$_GET["pid"]."'";
 		$rquery = mysqli_query($conn, $query);
 		$old = mysqli_fetch_array($rquery, MYSQLI_NUM);

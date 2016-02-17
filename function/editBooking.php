@@ -30,7 +30,7 @@
 	$rstokbaru = (string)$stokbaru;
 	echo $rstokbaru;
 	
-	if ($stokbaru >= 0){
+	if ($stokbaru >= 0 && $jumlah > 0){
 		$query = "UPDATE booking SET bid = '".$_GET["bid"]."', jumlah = '".$_GET["jumlah"]."', tanggal = '".$_GET["tanggal"]."', b_uid = '".$_GET["b_uid"]."', b_aid = '".$_GET["b_aid"]."' WHERE bid = '".$_GET["bid"]."'";
 		
 		$rquery = mysqli_query($conn, $query);
