@@ -73,7 +73,7 @@
                     <th data-field="id-pengadaan">ID Pengadaan</th>
                     <th data-field="id-supplier">ID Supplier</th>
                     <th data-field="id-atk">ID ATK</th>
-                    <th data-field="tanggal-pemesanan">Tanggal Pemesananan</th>
+                    <th data-field="tanggal-pemesanan">Tanggal Pemesanan</th>
                     <th data-field="tanggal-kedatangan">Tanggal Kedatangan</th>
                     <th data-field="jumlah-atk">Jumlah</th>
                 </tr>
@@ -115,7 +115,7 @@
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="a_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
+                      <input readonly="readonly" name="a_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
                       <label class="edit-label" for="id-atk">ID ATK</label>
                     </div>
                   </div>
