@@ -1,7 +1,9 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <?php include('header.html'); ?>
+      <?php include('header.html'); 
+			require_once("database.php");
+		?>
       <title>SISTER | Booking</title>
     </head>
 
@@ -16,22 +18,22 @@
             <div class="modal-content" style="height:100%">
               <h4>Booking Baru</h4>
               <div class="row">
-                <form id="add-form" class="col s12" action="" method="get" name = "insert">
+                <form id="add-form" class="col s12" action="/ppl1/function/insertBooking.php" method="get" name = "insert">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input readonly="readonly" name="pid" id="id-booking" type="text" class="validate" required="" aria-required="true">
+                      <input readonly="readonly" name="bid" id="id-booking" type="text" class="validate" required="" aria-required="true">
                       <label for="id-booking">ID Booking</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="p_uid" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
+                      <input name="b_uid" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
                       <label for="id-pengguna">ID Pengguna</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input name="p_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
+                      <input name="b_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
                       <label for="id-atk">ID ATK</label>
                     </div>
                   </div> 
@@ -69,15 +71,17 @@
                 </tr>
               </thead>
               <tbody>
+                <?php foreach (get_booking() as $data) { ?>
                 <tr class="data-row">
-                  <td>Book1</td>
-                  <td>User2</td>
-                  <td>ATK5</td>
-                  <td>2016-02-16</td>
-                  <td>2</td>
+                  <td><?php echo $data['bid']; ?></td>
+				  <td><?php echo $data['b_uid']; ?></td>
+				  <td><?php echo $data['b_aid']; ?></td>
+                  <td><?php echo $data['tanggal']; ?></td>
+                  <td><?php echo $data['jumlah']; ?></td>
                   <td><div class="edit-btn"><a class="waves-effect waves-light btn modal-trigger orange darken-1" href="#edit-modal">Ubah</a></div></td>
                   <td><div class ="delete-btn"><a class="waves-effect waves-light btn modal-trigger red darken-4" href="#delete-modal">Hapus</a></div></td>             
                 </tr>
+				<?php } ?>
               </tbody>
             </table>
             <!-- Edit-Modal-->
@@ -88,19 +92,19 @@
                     <form id="edit-form" class="col s12" action="/ppl1/function/editBooking.php">
                       <div class="row">
                         <div class="input-field col s6">
-                          <input readonly="readonly" name="pid" id="id-booking" type="text" class="validate" required="" aria-required="true">
+                          <input readonly="readonly" name="bid" id="id-booking" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-booking">ID Booking</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s6">
-                          <input name="p_uid" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
+                          <input name="b_uid" id="id-pengguna" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-pengguna">ID Pengguna</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s6">
-                          <input readonly="readonly" name="p_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
+                          <input readonly="readonly" name="b_aid" id="id-atk" type="text" class="validate" required="" aria-required="true">
                           <label class="edit-label" for="id-atk">ID ATK</label>
                         </div>
                       </div> 
@@ -142,7 +146,7 @@
       <script type="text/javascript">
         $(document).ready(function(){
           //date picker init
-          initPage("tabel-booking", ["id-booking", "id-pengguna", "id-atk", "tanggal-booking", "jumlah-atk"], "id-booking", 4, 0, "Book", "/ppl1/function/deleteBooking.php", "pid", 0); 
+          initPage("tabel-booking", ["id-booking", "id-pengguna", "id-atk", "tanggal-booking", "jumlah-atk"], "id-booking", 4, 0, "Book", "/ppl1/function/deleteBooking.php", "bid", 0); 
         });
       </script>
     </body>
