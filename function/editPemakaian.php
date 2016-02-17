@@ -13,6 +13,10 @@
 		die();
 	}
 	
+	$query = "SELECT jumlah FROM pemakaian WHERE pid = '".$_GET["pid"]."'";
+	$rquery = mysqli_query($conn, $query);
+	$old = mysqli_fetch_array($rquery, MYSQLI_NUM);
+
 	$query = "SELECT stok FROM ATK WHERE aid = '".$_GET["p_aid"]."'";
 	$rstok = mysqli_query($conn, $query);
 	
@@ -26,16 +30,11 @@
 	$rstokbaru = (string)$stokbaru;
 	echo $rstokbaru;
 	
-	if ($stokbaru >= 0 && jumlah > 0){
-		$query = "SELECT jumlah FROM pemakaian WHERE pid = '".$_GET["pid"]."'";
-		$rquery = mysqli_query($conn, $query);
-		$old = mysqli_fetch_array($rquery, MYSQLI_NUM);
-
-
+	if ($stokbaru >= 0 && $jumlah > 0){
 		$query = "UPDATE pemakaian SET pid = '".$_GET["pid"]."', jumlah = '".$_GET["jumlah"]."', tanggal = '".$_GET["tanggal"]."', p_uid = '".$_GET["p_uid"]."', p_aid = '".$_GET["p_aid"]."' WHERE pid = '".$_GET["pid"]."'";
 		
 		$rquery = mysqli_query($conn, $query);
-		
+			
 		$query = "UPDATE ATK SET stok = '".$rstokbaru."' WHERE aid = '".$_GET["p_aid"]."'";
 		$rquery = mysqli_query($conn, $query);
 
